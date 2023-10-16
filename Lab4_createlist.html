@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create List</title>
+</head>
+<body>
+<div class="inputsContainer">
+    <label for="usersTextArea">Write Text Here:</label>
+    <input type="text" id="usersTextArea" />
+
+
+
+    <br />
+
+
+    <div class="unorderedListSection">
+      <label for="unorderedListClass"> List of things</label>
+        <ul id="unorderedListClass"></ul>
+    </div>
+
+
+    <button id="submitBTN">Submit</button>
+    <button id="clearBTN">Clear</button>
+
+</div>
+
+
+<script>
+    const buttonSubmit = document.getElementById('submitBTN');
+    let usersText = document.getElementById('usersTextArea');
+    const list = document.getElementById('unorderedListClass');
+
+
+
+    buttonSubmit.addEventListener('click', function () {
+        let text = usersText.value.trim();
+
+
+        if (text.length <= 0) {
+            alert('Need text input!');  // an alert button for when user doesn't have any text added
+        }
+
+
+        if (text.length > 0 && text.length <= 50) {
+            if (list.childElementCount < 10) {
+                const listElementAdd = document.createElement('li');
+
+
+                listElementAdd.textContent = text;
+                list.append(listElementAdd);
+                usersText.value = '';
+
+            } else {  // if I have more than 10 items on the list
+                alert(`You have ${list.childElementCount}, Only 10 items on list!`);  // alert to notify when that you can only have 10 items
+            }
+
+
+        } else if (text.length > 50) {   // if the text happens to be more than 50 characters
+            alert('Text needs to be less than 50 characters')  //alert button to  notify user they've gone over the 50 characters limit
+        }
+    });
+
+    const clearButton = document.getElementById('clearBTN');  //clear list button
+    clearButton.addEventListener('click', function () {
+        list.innerHTML = '';
+    });
+</script>
+</body>
+</html>

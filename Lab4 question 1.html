@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>button_click</title>
+</head>
+<body>
+    <button>Click here!</button>
+    <link >
+
+<script>
+
+    let button = document.querySelector('button') // finding the button in the page
+
+    button.addEventListener('click', function() {
+        alert('You clicked the button!')  // added an alert to let the user known when they've clicked the button
+        button.innerHTML = 'You clicked the button'
+        button.style.backgroundColor= 'lightgreen'
+    })
+
+</script>
+</body>
+</html>
